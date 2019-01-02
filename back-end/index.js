@@ -1,14 +1,15 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const { key, geolocation, accountSid, authToken } = require('./headers');
+const { key, geolocation, accountSid, authToken, SECRET_KEY } = require('./headers');
 const axios = require('axios');
 const twilio = require('twilio');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const Users = require('./mongoDB/models/Users');
-const SECRET_KEY = require('./headers')
+const fs = require('fs');
+const cors = require('cors');
 
 mongoose.connect('mongodb://localhost:27017/hairco');
 
@@ -17,13 +18,14 @@ connection.on('open', ()=>{
     console.log('mongoose connected!')
 })
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+//     next();
+// });
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public', {
@@ -116,12 +118,13 @@ app.post('/registration', async (req, res) => {
 
 // Login
 app.post('/login', (req,res) => {
-    Users.find({ username: req.body.username })
-    .then((result) => {bcrypt.compare(req.body.password, result.password, (err, result)=>{
+    Users.findOne({ username: req.body.username })
+    .then((response) => { bcrypt.compare(req.body.password, response.password, (err, result)=>{
         if (result){
             const token = jwt.sign({subject: Users.username}, SECRET_KEY, {expiresIn: '10h'});
             res.json({token: token})
-        } else res.sendStatus(401).json({'message': 'Invalid Credentials'})
+        } 
+        else res.sendStatus(401).json({'message': 'Invalid Credentials'})
         })
     })
 })

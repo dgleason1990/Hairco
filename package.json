@@ -16,5 +16,8 @@
     "url": "https://github.com/dgleason1990/HairCompany/issues"
   },
   "homepage": "https://github.com/dgleason1990/HairCompany#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }

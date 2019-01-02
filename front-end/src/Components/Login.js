@@ -26,9 +26,13 @@ export default class Login extends Component {
             }
           }
         fetch('http://localhost:8080/login', init)
-        .then(res => {console.log(res);
-            localStorage.setItem('token', res)})
-    }
+        .then(res => res.json())
+        .then(data => {
+            if (data.status == 200){
+                localStorage.setItem('token', data.token)
+            }
+        })
+        .catch ((err)=> console.loge(err))}
 
   render() {
     return (
