@@ -18,6 +18,7 @@ export default class Login extends Component {
             username: this.usernameRef.current.value,
             password: this.passwordRef.current.value
         });
+        console.log(this.state)
         let init = {
             method:'POST',
             body:JSON.stringify(this.state),
@@ -27,12 +28,19 @@ export default class Login extends Component {
           }
         fetch('http://localhost:8080/login', init)
         .then(res => res.json())
-        .then(data => {
-            if (data.status == 200){
-                localStorage.setItem('token', data.token)
-            }
-        })
-        .catch ((err)=> console.loge(err))}
+        .then((data)=> {
+            this.setState ({
+                id: data.id
+            });
+            localStorage.setItem('token', data.token); 
+            this.props.history.push(`/dashboard/${this.state.id}`)}
+        )}
+        // .catch ((err)=> console.loge(err))}
+        // .then(data => {
+        //     if (data.status == 200){
+        //         localStorage.setItem('token', data.token)
+        //     }
+        // })
 
   render() {
     return (

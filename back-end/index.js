@@ -10,6 +10,7 @@ const bcrypt = require('bcrypt');
 const Users = require('./mongoDB/models/Users');
 const fs = require('fs');
 const cors = require('cors');
+const authorization = require('./Authorization')
 
 mongoose.connect('mongodb://localhost:27017/hairco');
 
@@ -121,12 +122,19 @@ app.post('/login', (req,res) => {
     Users.findOne({ username: req.body.username })
     .then((response) => { bcrypt.compare(req.body.password, response.password, (err, result)=>{
         if (result){
-            const token = jwt.sign({subject: Users.username}, SECRET_KEY, {expiresIn: '10h'});
+            const token = jwt.sign({subject: Users.username}, SECRET_KEY);
             res.json({token: token})
         } 
         else res.sendStatus(401).json({'message': 'Invalid Credentials'})
         })
     })
+})
+
+//Dashboard
+app.get('/dashboard', authorization, (req,res)=>{
+    // Users.findById(req.body.id)
+    // .then(data => res.json(data))
+    res.json(data)
 })
 
 app.listen(8080, () => {
