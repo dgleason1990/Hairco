@@ -122,20 +122,26 @@ app.post('/login', (req,res) => {
     Users.findOne({ username: req.body.username })
     .then((response) => { bcrypt.compare(req.body.password, response.password, (err, result)=>{
         if (result){
-            const token = jwt.sign({subject: Users.username}, SECRET_KEY);
+            const token = jwt.sign({id: response.id}, SECRET_KEY);
             res.json({token: token})
         } 
         else res.sendStatus(401).json({'message': 'Invalid Credentials'})
         })
     })
+    .catch(err=>console.log(err))
 })
 
 //Dashboard
 app.get('/dashboard', authorization, (req,res)=>{
-    // Users.findById(req.body.id)
-    // .then(data => res.json(data))
-    res.json(data)
+    let id = data.id;
+    Users.findById(id)
+    .then(response => {
+        res.json(response)
+    })
+    .catch(err=>console.log(err))
 })
+//currently stuck on sending back the data with everything in it to the front-end to display on page - right now token is verified
+//  Postman is receiving the data, but front end is not. Might not have to send id to search by. Don't know enough 
 
 app.listen(8080, () => {
     console.log('You are connected to port 8080')

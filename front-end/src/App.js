@@ -9,6 +9,7 @@ import YourStylist from './Components/yourStylist';
 import Registration from './Components/Registration';
 import MapContainer from './Components/MapContainer';
 import Login from './Components/Login';
+import Dashboard from './Components/StylistDashboard'
 
 class App extends Component {
   state={
@@ -75,8 +76,7 @@ class App extends Component {
                 {return <YourStylist stylists={this.state.stylists} />}}/>
                 <Route path='/registration' component={ Registration }/>
                 <Route path='/login' component={Login}/>
-                {/* render={() =>  */}
-                {/* {return <Stylist stylists={this.state.stylists} />}}/> */}
+                <Route path='/dashboard/:id' component={Dashboard}/>
                 <Route path='/clients' exact render={(props) => 
                 {return <MapContainer {...props} stylists={this.state.stylists} clients={this.state.clients}/>}}/>/>
               </Switch>
