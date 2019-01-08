@@ -56,7 +56,7 @@ export default withRouter(class Nav extends Component{
             <div className='bar4'>
                 <Link to='/home' onClick={this.myFunction} > Home </Link>
                 <button onClick={this.handleOpen}>Find your Stylist</button>
-                <Link to='/stylists' onClick={this.myFunction} > Become a Hairco Stylist </Link>
+                <Link to='/registration' onClick={this.myFunction} > Become a Hairco Stylist </Link>
                 <Link to='/login' onClick={this.myFunction} > Login </Link>
             </div>
           </div>

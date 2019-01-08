@@ -69,7 +69,7 @@ class App extends Component {
                 <Route path='/home' render={()=>
                 {return <Home clientLocation={this.clientLocation}/>}}/>
                 <Route exact path='/' render={() => <Redirect to='/home'/> }/>
-                <Route path='/stylists' component={ Stylists }/>
+                {/* <Route path='/stylists' component={ Stylists }/> */}
                 <Route path='/clients' exact render={(props) => 
                 {return <Clients stylists={this.state.stylists} clients={this.state.clients} {...props}  />}}/>
                 <Route path='/yourStylists/:id' render={() => 

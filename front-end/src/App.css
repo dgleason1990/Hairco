@@ -305,7 +305,10 @@
   margin: 0;
 }
 
-.stylistPage {
+.registration {
+  margin-top: 10vw;
+  height: 100%;
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -318,7 +321,7 @@
           align-items: center;
 }
 
-.stylistPage form {
+.registration form {
   position: absolute;
   padding-bottom: 30px;
   padding-left: 10px;
@@ -337,18 +340,18 @@
           justify-content: space-between;
 }
 
-.stylistPage form label {
+.registration form label {
   font-weight: bold;
 }
 
-.stylistPage form label input {
+.registration form label input {
   width: 100%;
   font-size: 1em;
 }
 
-.stylistPage form button {
+.registration form button {
   margin-left: 8em;
-  margin-top: 40px;
+  margin-top: 55px;
   width: 20vw;
   border: none;
   color: #eed38e;
@@ -371,16 +374,39 @@
   cursor: pointer;
 }
 
-.stylistPage form button img {
+.registration form button img {
   position: absolute;
   z-index: -1;
   width: 300px;
 }
 
-.video {
-  margin-top: 1vw;
+.registration .video {
+  position: relative;
+  bottom: 8vw;
   z-index: -4;
   opacity: 0.3;
+}
+
+.dashboard {
+  margin-top: 8vw;
+  height: 100%;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard img {
+  max-width: 45vw;
+  max-height: 30vw;
+  border-radius: 5%;
 }
 
 .modelSubmit {
@@ -427,12 +453,6 @@
   color: #eed38e;
   background-color: #151515;
   cursor: pointer;
-}
-
-.registration {
-  margin-top: 8vw;
-  height: 100%;
-  width: 100vw;
 }
 
 .login {

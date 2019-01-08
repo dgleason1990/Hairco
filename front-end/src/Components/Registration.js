@@ -42,6 +42,7 @@ export default class Registration extends Component {
     }
     fetch('http://localhost:8080/registration', init)
     .then(res => res.json())
+    .then(this.props.history.push(`/login`))
     .catch(err => console.log(err))
   }
 
@@ -77,8 +78,10 @@ export default class Registration extends Component {
             Profile Picture (URL)
             <input ref={this.profileRef}/>
           </label>
-          <button type='submit' onClick={this.onSubmit}>Submit</button>
+          <button type='submit' onClick={this.onSubmit}><img src='http://www.gentlemen-barberclubs.de/images/cta.jpg' alt='Button Image'/>Submit</button>
         </form>
+        <video  className='video' autoPlay loop muted src='./Assets/video.mp4' width="1100" height="800" >
+        </video>
       </div>
     )
   }

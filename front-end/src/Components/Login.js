@@ -9,8 +9,7 @@ export default class Login extends Component {
 
     state={
         username: '',
-        password: '',
-        id: ''
+        password: ''
     }
 
     handleSubmit = async (e) => {
@@ -29,11 +28,12 @@ export default class Login extends Component {
         fetch('http://localhost:8080/login', init)
         .then(res => res.json())
         .then((data) => {
+            console.log(data)
             this.setState ({
                 id: data.id
             });
             localStorage.setItem('token', data.token);
-            this.props.history.push(`/dashboard/${this.state.id}`)}
+            this.props.history.push(`/dashboard/${this.state.username}`)}
         )}
 
   render() {
