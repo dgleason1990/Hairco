@@ -141,10 +141,7 @@ app.get('/dashboard', authorization, (req,res)=>{
     .catch(err=>console.log(err))
 })
 
-app.listen(process.env.PORT || 3000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  })
-
+app.listen(process.env.PORT || 5000)
 // app.listen(8080, () => {
 //     console.log('You are connected to port 8080')
 //    })
