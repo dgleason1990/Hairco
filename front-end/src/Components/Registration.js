@@ -75,7 +75,7 @@ export default class Registration extends Component {
             <input ref={this.phoneNumberRef}/>
           </label>
           <label>
-            Profile Picture (URL)
+            Profile Picture (URL format)
             <input ref={this.profileRef}/>
           </label>
           <button type='submit' onClick={this.onSubmit}><img src='http://www.gentlemen-barberclubs.de/images/cta.jpg' alt='Button Image'/>Submit</button>
