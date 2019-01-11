@@ -141,10 +141,15 @@ app.get('/dashboard', authorization, (req,res)=>{
     .catch(err=>console.log(err))
 })
 
-app.listen(8080, () => {
-    console.log('You are connected to port 8080')
-   })
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  })
 
+// app.listen(8080, () => {
+//     console.log('You are connected to port 8080')
+//    })
+
+   
 
 // Tokens
 //    bcrypt.compare(password, user.password, (err, result) => {
