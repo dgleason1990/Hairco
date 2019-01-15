@@ -38,9 +38,9 @@ export default class StylistDashboard extends Component {
   render() {
     return (
       <div className='dashboard'>
-        <div> Welcome to your dashboard {this.state.data.name} </div>
+        <h1> Welcome to your dashboard {this.state.data.name} </h1>
         <img src={this.state.data.img} alt='Profile Picture'/>
-        <div> Your current rating is: {this.state.data.rating} </div>
+        <h2> Your current rating is: {this.state.data.rating} </h2>
       </div>
     )
   }

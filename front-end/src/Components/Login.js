@@ -48,7 +48,7 @@ export default class Login extends Component {
                 Password:
                 <input ref={this.passwordRef} type='password'/>
             </label>
-            <button onClick={ this.handleSubmit }>Login</button>
+            <button onClick={ this.handleSubmit }> <img src='http://www.gentlemen-barberclubs.de/images/cta.jpg' alt='Button Image'/>Login</button>
         </form>
       </div>
     )
