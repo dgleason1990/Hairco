@@ -35,12 +35,29 @@ export default class StylistDashboard extends Component {
         }
       }
 
+      
   render() {
     return (
       <div className='dashboard'>
         <h1> Welcome to your dashboard {this.state.data.name} </h1>
         <img src={this.state.data.img} alt='Profile Picture'/>
         <h2> Your current rating is: {this.state.data.rating} </h2>
+        <div> 
+            <h2> Set your monthly goals. </h2>
+            <h3> How much do you aim to make? </h3>
+            <form>
+                Monthly goal: <input type='number'/>
+                <button> Submit </button>
+            </form>
+        </div>
+        <div>
+            <h2> Track your sales.</h2>
+            <h2> Enter sales </h2>
+            <form>
+                Sale: <input type='number'/>
+                <button> Submit </button>
+            </form>
+        </div>
       </div>
     )
   }
