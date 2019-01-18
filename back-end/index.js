@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const { geolocation, accountSid, authToken, SECRET_KEY, MONGODB_URI } = require('./headers');
+const { geolocation, accountSid, authToken, SECRET_KEY, MONGODB_URI } = require('./public-headers');
 const axios = require('axios');
 const twilio = require('twilio');
 const mongoose = require('mongoose');

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { SECRET_KEY } = require('./headers');
+const { SECRET_KEY } = require('./public-headers');
 
 module.exports = (req,res,next) => {
 	//check if there is token in the body, a url parameter, or the request headers
