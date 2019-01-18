@@ -11,6 +11,7 @@ const Users = require('./mongoDB/models/Users');
 const fs = require('fs');
 const cors = require('cors');
 const authorization = require('./Authorization');
+const path = require('path')
 
 // mongoose.connect('mongodb://localhost:27017/hairco');
 mongoose.connect(MONGODB_URI)
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/front-end/build', {
     setHeaders: function(res, path) { res.set("Cache-Control", "no-cache"); }
 }));
+app.get('/',(req,res)=>{res.sendFile(path.join(__dirname+'/index.html'));});
 
 app.post('/client', async (req,res)=>{
     let clientLocation = req.body.location;
