@@ -141,6 +141,14 @@ app.get('/dashboard', authorization, (req,res)=>{
     .catch(err=>console.log(err))
 })
 
+// Monthly Goals
+app.post('/goals', authorization, (req,res)=>{
+    let id = data.id;
+    let goal = req.body.monthlyGoal;
+    Users.findById(id)
+    .then()
+})
+
 app.listen(process.env.PORT || 8080)
 // app.listen(8080, () => {
 //     console.log('You are connected to port 8080')

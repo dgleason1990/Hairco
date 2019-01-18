@@ -49,6 +49,12 @@ const usersSchema = new Schema({
         type: Number,
         required: false
     },
+    monthlygoal:{
+        type: Number
+    },
+    sale:{
+        type: Number
+    },
     date_created:{
         type: Date,
         required: true,
