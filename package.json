@@ -29,6 +29,11 @@
     "react-router-dom": "^4.3.1",
     "twilio": "^3.27.1",
     "google-map-react": "^1.1.1",
-    "google-maps-react": "^2.0.2"
+    "google-maps-react": "^2.0.2",
+    "d3": "^5.7.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "2.1.1",
+    "prop-types": "^15.6.2"
   }
 }
