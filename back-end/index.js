@@ -32,8 +32,8 @@ app.use(express.static(__dirname + '/front-end/build', {
 // app.use(express.static('__dirname + /front-end/build', {
 //     setHeaders: function(res, path) { res.set("Cache-Control", "no-cache"); }
 //  }));
-app.get('*',(req, res) => {
-    res.sendFile(path.resolve(__dirname, 'front-end', 'build', 'index.html'));
+app.get('/*',(req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
     });
 
 app.post('/client', async (req,res)=>{
