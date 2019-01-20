@@ -32,9 +32,14 @@ app.use(express.static(__dirname + '/front-end/build', {
 // app.use(express.static('__dirname + /front-end/build', {
 //     setHeaders: function(res, path) { res.set("Cache-Control", "no-cache"); }
 //  }));
-app.get('/*',(req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-    });
+// app.get('/*',(req, res) => {
+//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+//     });
+
+    app.get('*', function (req, res) {
+        const index = path.join(__dirname, 'build', 'index.html');
+        res.sendFile(index);
+      });
 
 app.post('/client', async (req,res)=>{
     let clientLocation = req.body.location;
