@@ -37,7 +37,7 @@ app.use(express.static(__dirname + '/front-end/build', {
 //     });
 
     app.get('*', function (req, res) {
-        const index = path.join(__dirname,'front-end', 'build', 'index.html');
+        const index = path.join(__dirname,'front-end', 'public', 'index.html');
         res.sendFile(index);
       });
 
