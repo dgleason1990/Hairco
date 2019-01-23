@@ -74,7 +74,7 @@ export default class Stylists extends Component {
             <input name={this.state.img} onChange={this.handleImg}></input> 
           </label>
           <input name='imageUpload' type="file" accept="image/*" onChange={this.imageAddedHandler}/>
-          <button onClick={this.register}> <img src='http://www.gentlemen-barberclubs.de/images/cta.jpg' alt='Button Image'/> Register </button>
+          <button onClick={this.register}> <img src='./Assets/button.jpg' alt='Button Image'/> Register </button>
         </form>
         <video  className='video'autoPlay loop muted src='./Assets/video.mp4' width="900" height="500" >
         </video>

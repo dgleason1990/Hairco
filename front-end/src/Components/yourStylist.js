@@ -51,7 +51,7 @@ class yourStylist extends Component {
           {this.state.currentStylist.name}
         </div>
         <img src={this.state.currentStylist.img}/>
-        <button className='button' onClick={this.handleOpen}> <img className='img' src='http://www.gentlemen-barberclubs.de/images/cta.jpg' alt='Button Image'/> Book an appointment</button>
+        <button className='button' onClick={this.handleOpen}> <img className='img' src='./Assets/button.jpg' alt='Button Image'/> Book an appointment</button>
         <Modal handleClose={this.handleClose} isOpen={this.state.isOpen} stylistData={this.state.stylistData}/>
       </div>
     )

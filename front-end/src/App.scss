@@ -6,7 +6,7 @@
 
 // Background
 .background{
-  background-image: url(http://www.gentlemen-barberclubs.de/images/pattern.jpg);
+  background-image: url('/Assets/pattern.jpg');
   background-repeat: repeat;
   padding: 15px;
   height: 100vw;
@@ -16,7 +16,7 @@
   top: 0;
   left: 0;
   .brushBackground{
-    background-image: url(http://www.gentlemen-barberclubs.de/images/brush.jpg);
+    background-image: url('/Assets/brush.jpg');
     background-repeat: no-repeat;
     background-size: 25vw;
     margin-top: 130px;

@@ -78,7 +78,7 @@ export default class Registration extends Component {
             Profile Picture (URL format)
             <input ref={this.profileRef}/>
           </label>
-          <button type='submit' onClick={this.onSubmit}><img src='http://www.gentlemen-barberclubs.de/images/cta.jpg' alt='Button Image'/>Submit</button>
+          <button type='submit' onClick={this.onSubmit}><img src='./Assets/button.jpg' alt='Button Image'/>Submit</button>
         </form>
         <video  className='video' autoPlay loop muted src='./Assets/video.mp4' width="1100" height="800" >
         </video>

@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const { key, geolocation, accountSid, authToken, SECRET_KEY } = require('./headers');
+const { key, geolocation, accountSid, authToken, SECRET_KEY, MONGODB_URI } = require('./headers');
 const axios = require('axios');
 const twilio = require('twilio');
 const mongoose = require('mongoose');
@@ -12,7 +12,11 @@ const fs = require('fs');
 const cors = require('cors');
 const authorization = require('./Authorization')
 
-mongoose.connect('mongodb://localhost:27017/hairco');
+// mongoose.connect('mongodb://localhost:27017/hairco');
+mongoose.connect(MONGODB_URI)
+.then(()=>console.log('MongoDB connected!'))
+.catch(err=>console.log(err))
+
 
 const connection = mongoose.connection;
 connection.on('open', ()=>{
